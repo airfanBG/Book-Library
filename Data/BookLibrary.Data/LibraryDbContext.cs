@@ -1,10 +1,12 @@
-﻿using BookLibrary.Models;
+﻿using BookLibrary.Data.Common.Models.Interfaces;
+using BookLibrary.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 
@@ -58,6 +60,39 @@ namespace BookLibrary.Data
             builder.Entity<Department>().HasData(new Department() { DepartmentName = "Department1" });
 
             base.OnModelCreating(builder);
+        }
+        public override int SaveChanges()
+        {
+            return base.SaveChanges(true);
+
+        }
+        public override int SaveChanges(bool acceptAllChangesOnSuccess)
+        {
+            this.ApplyEntityChanges();
+            return base.SaveChanges(acceptAllChangesOnSuccess);
+        }
+        private void ApplyEntityChanges()
+        {
+            var entities = this.ChangeTracker.Entries().Where(x =>(x.Entity is IAuditInfo || x.Entity is IDeletableEntity) && (x.State == EntityState.Added || x.State == EntityState.Modified || x.State == EntityState.Deleted));
+            foreach (var entity in entities)
+            {
+                if (entity.State == EntityState.Added)
+                {
+                    var addedEntityType = entity as IAuditInfo;
+                    addedEntityType.CreatedAt = DateTime.Now;
+                }
+
+                if (entity.State==EntityState.Modified)
+                {
+                    var modifiedEntityType = entity as IAuditInfo;
+                    modifiedEntityType.ModifiedAt = DateTime.Now;
+                }
+                if (entity.State == EntityState.Deleted)
+                {
+                    var deletableEntityType = entity as IDeletableEntity;
+                    deletableEntityType.DeletedAt = DateTime.Now;
+                }
+            }
         }
     }
 }
