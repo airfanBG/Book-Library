@@ -1,5 +1,6 @@
 ﻿using BookLibrary.Data.Common.Models.Interfaces;
 using BookLibrary.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -37,6 +38,7 @@ namespace BookLibrary.Data
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
+           
             var user1 = new User()
             {
                 FirstName = "XXXX",
