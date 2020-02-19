@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BookLibrary.Data.Common\BookLibrary.Data.Common.csproj" />
+    <ProjectReference Include="..\BookLibrary.Data.Common\BooksLibrary.Data.Common.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,6 @@
 ﻿using BookLibrary.Data.Common.Models.BaseModels;
 using BookLibrary.Data.Common.Models.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.Win32.SafeHandles;
@@ -13,7 +14,7 @@ using System.Text;
 
 namespace BookLibrary.Data.Repository
 {
-    public class BaseRepository<T,Tkey> :IDisposable, IRepository<T> where T: IAuditInfo<Tkey>,new()
+    public class BaseRepository<T,Tkey> :IDisposable, IRepository<T> where T: BaseModel<Tkey>, IAuditInfo,new()
     {
 
         bool disposed = false;
@@ -42,6 +43,7 @@ namespace BookLibrary.Data.Repository
             else
             {
                 this.DbSet.Add(entity);
+                this.SaveChanges();
                 return true;
             }
             return false;

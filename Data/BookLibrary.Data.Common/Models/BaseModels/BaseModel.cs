@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BookLibrary.Data.Common.Models.BaseModels
 {
-    public abstract class IAuditInfo<Tkey> : IAuditInfo
+    public abstract class BaseModel<Tkey> : IAuditInfo
     {
 
         [Key]

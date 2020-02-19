@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BookLibrary.Models\BookLibrary.Models.csproj" />
+    <ProjectReference Include="..\BookLibrary.Models\BooksLibrary.Models.csproj" />
   </ItemGroup>
 
   <ItemGroup>
