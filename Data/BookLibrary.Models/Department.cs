@@ -7,7 +7,7 @@ using System.Text;
 
 namespace BookLibrary.Models
 {
-    public class Department: BaseModel<string>
+    public class Department: IAuditInfo<string>
     {
         public Department()
         {

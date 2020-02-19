@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibrary.Data", "Data\BookLibrary.Data\BookLibrary.Data.csproj", "{F266876C-212B-48F0-89DA-B30013C96B51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookLibrary.Data", "Data\BookLibrary.Data\BookLibrary.Data.csproj", "{F266876C-212B-48F0-89DA-B30013C96B51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibrary.Models", "Data\BookLibrary.Models\BookLibrary.Models.csproj", "{1CA468A2-A3B1-4BF6-B61C-B55F0ABE9418}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookLibrary.Models", "Data\BookLibrary.Models\BookLibrary.Models.csproj", "{1CA468A2-A3B1-4BF6-B61C-B55F0ABE9418}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibrary.Services", "Services\BookLibrary.Services\BookLibrary.Services.csproj", "{23EC638A-7C35-44D9-884D-3CAC02FB47B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookLibrary.Services", "Services\BookLibrary.Services\BookLibrary.Services.csproj", "{23EC638A-7C35-44D9-884D-3CAC02FB47B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibrary.WebLibrary", "Web\BookLibrary.WebLibrary\BookLibrary.WebLibrary.csproj", "{335F178D-9691-44C4-AD55-B3D809411D23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookLibrary.WebLibrary", "Web\BookLibrary.WebLibrary\BookLibrary.WebLibrary.csproj", "{335F178D-9691-44C4-AD55-B3D809411D23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibrary.Data.Common", "Data\BookLibrary.Data.Common\BookLibrary.Data.Common.csproj", "{A94CEEAD-409B-4F43-BD4C-BA6F63E9E7D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookLibrary.Data.Common", "Data\BookLibrary.Data.Common\BookLibrary.Data.Common.csproj", "{A94CEEAD-409B-4F43-BD4C-BA6F63E9E7D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Test", "Test\Data.Test\Data.Test.csproj", "{E294C192-C80C-453B-B237-BEFF3138CD5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{A94CEEAD-409B-4F43-BD4C-BA6F63E9E7D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A94CEEAD-409B-4F43-BD4C-BA6F63E9E7D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A94CEEAD-409B-4F43-BD4C-BA6F63E9E7D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E294C192-C80C-453B-B237-BEFF3138CD5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E294C192-C80C-453B-B237-BEFF3138CD5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E294C192-C80C-453B-B237-BEFF3138CD5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E294C192-C80C-453B-B237-BEFF3138CD5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,10 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="NewFolder\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\BookLibrary.Data.Common\BookLibrary.Data.Common.csproj" />
   </ItemGroup>
 
