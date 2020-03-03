@@ -15,6 +15,9 @@ using BookLibrary.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication;
 using BookLibrary.Data;
+using System.IO;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
 namespace BookLibrary.WebLibrary
 {
@@ -39,6 +42,7 @@ namespace BookLibrary.WebLibrary
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,20 +53,23 @@ namespace BookLibrary.WebLibrary
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
             }
+           
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseStatusCodePagesWithRedirects("/Home/Error?code={0}");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+         
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            
+            app.UseCors();
             app.UseAuthentication();
             app.UseAuthorization();
-
+           
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -71,5 +78,10 @@ namespace BookLibrary.WebLibrary
                 endpoints.MapRazorPages();
             });
         }
+        private async Task GetData(HttpContext httpClient)
+        {
+         
+        }
+       
     }
 }

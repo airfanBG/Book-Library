@@ -1,8 +1,13 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@inject Microsoft.Extensions.Configuration.IConfiguration conf
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<p>@conf["Production"]</p>
+<div class="text-center">
+    <img src="~/images/70299662_384403465793405_6950944873931341824_o.jpg" alt="Alternate Text" />
 </div>

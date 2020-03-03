@@ -14,7 +14,7 @@ using System.Text;
 
 namespace BookLibrary.Data.Repository
 {
-    public class BaseRepository<T,Tkey> :IDisposable, IRepository<T> where T: BaseModel<Tkey>, IAuditInfo,new()
+    public class BaseRepository<T,Tkey> :IDisposable,IRepository<T> where T: BaseModel<Tkey>, IAuditInfo,new()
     {
 
         bool disposed = false;

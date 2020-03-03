@@ -8,7 +8,7 @@ using System.Text;
 
 namespace BookLibrary.Data.Repository
 {
-    public interface IRepository<T> where T : class, IAuditInfo
+    public interface IRepository<T>:IDisposable, where T : class, IAuditInfo
     {
         DbContext Context { get; set; }
         DbSet<T> DbSet { get; set; }
