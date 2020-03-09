@@ -32,5 +32,8 @@ namespace BookLibrary.Models
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<AuthorBooks> AuthorBooks { get; set; }
         public virtual ICollection<UserBooks> UserBooks { get; set; }
+
+        [NotMapped]
+        public string EncryptedId { get; set; }
     }
 }

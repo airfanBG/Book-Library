@@ -1,6 +1,7 @@
 ﻿using BookLibrary.Data.Repository;
 using BookLibrary.Models;
 using BookLibrary.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace BooksLibrary.Services.EntityServices
 
         public IQueryable<Book> All(Func<Book, bool> func = null)
         {
-            return context.GetAll(func);
+            return context.GetAll(func).Include(x=>x.AuthorBooks).ThenInclude(x=>x.Author);
         }
 
         public bool Delete(object id)

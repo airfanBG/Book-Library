@@ -18,6 +18,11 @@ using BookLibrary.Data;
 using System.IO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel;
+using BookLibrary.Services.Interfaces;
+using BooksLibrary.Services.EntityServices;
+using BookLibrary.Data.Repository;
 
 namespace BookLibrary.WebLibrary
 {
@@ -34,12 +39,30 @@ namespace BookLibrary.WebLibrary
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<DbContext, LibraryDbContext>();
+            services.AddScoped<IRepository<Book>, BaseRepository<Book,string>>();
+
+            services.AddScoped<IBaseOperations<Book>, BookService>();
+       
             services.AddScoped<LibraryDbContext>();
             services.AddIdentity<User, Role>()
              .AddEntityFrameworkStores<LibraryDbContext>()
              .AddDefaultUI()
              .AddDefaultTokenProviders();
+            services.AddDataProtection()
+                     .UseCustomCryptographicAlgorithms(
+                         new CngCbcAuthenticatedEncryptorConfiguration()
+                         {
+                            // Passed to BCryptOpenAlgorithmProvider
+                            EncryptionAlgorithm = "AES",
+                             EncryptionAlgorithmProvider = null,
+                             
+                            // Specified in bits
+                            EncryptionAlgorithmKeySize = 256,
 
+                            // Passed to BCryptOpenAlgorithmProvider
+                            HashAlgorithm = "SHA256",
+                             HashAlgorithmProvider = null
+                         });
             services.AddControllersWithViews();
             services.AddRazorPages();
             

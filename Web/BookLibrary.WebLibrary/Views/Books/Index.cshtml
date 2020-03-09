@@ -1,0 +1,33 @@
+﻿@model List<BookModel>
+@using BooksLibrary.WebLibrary.Models.ViewModels
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Book name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Author</th>
+        </tr>
+    </thead>
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        var one = 1;
+        var res=i + one; 
+        <tbody>
+            <tr>
+                <th scope="row">@res</th>
+                <td>@Model[i].BookName</td>
+                <td>@Model[i].Annotation</td>
+                <td>@Model[i].Author</td>
+            </tr>
+           
+        </tbody>
+
+    }
+</table>
